@@ -1,0 +1,6 @@
+version: '3.9' # docker's version
+services:
+  app: # アプリケーションサーバーの名前　任意でおk サービス名をここで定義
+    build: ./infra/php # ビルドコンテキスト('docker build'を実行する際のカレントディレクトリのこと)を指定
+    volumes:
+      - ./backend:/work #ホスト側の ./backend ディレクトリをappサービスのコンテナ内 /work へマウントしてます。(マウント=>そのファイルを認識できるようにする, volume=>ボリュームとは、データを永続化できる場所のことである。外部HDDのようなイメージ。コンテナ本体にマウントして使う。)
